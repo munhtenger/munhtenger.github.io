@@ -327,6 +327,14 @@
       display: block;
     }
 
+    .skill-icon-img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      margin-bottom: 12px;
+      display: block;
+    }
+
     .skill-name {
       font-size: 0.95rem;
       font-weight: 600;
@@ -548,7 +556,7 @@
       <li><a href="#about">Миний тухай</a></li>
       <li><a href="#experience">Ажлын туршлага</a></li>
       <li><a href="#skills">эзэмшсэн програм</a></li>
-      <li><a href="#portfolio">Хийсэн ажилууд</a></li>
+      <li><a href="#portfolio">Хийсэн ажлууд</a></li>
       <li><a href="#contact">Холбоо барих</a></li>
     </ul>
   </nav>
@@ -559,7 +567,7 @@
     <p class="hero-sub">
       Видео эдитор, зураглаач болон контент бүтээгч 
     </p>
-   
+  
   </header>
 
   <div class="divider"></div>
@@ -573,8 +581,8 @@
     <div class="about-grid">
       <div class="about-text fade-in">
         <p>Намайг <strong>Мөнхтэнгэр</strong> гэдэг. Сүлжээний инженерийн мэргэжлээр 2021 онд төгссөн боловч өөрийн сонирхлын дагуу Content creater-ийн салбарлуу орсон.</p>
-        <p>2020–2021 онд <strong>Амжилт Дотком</strong> компанид front-end developer хийж, цахим ертөнцтэй нягт холбоотой болсон. </p>
-        <p>Одоо сонирхолоороо зураг авч, бичлэг хийж, After Effects болон Premiere-д ажилладаг.</p>
+        
+        
       </div>
       <div class="about-stats fade-in">
         <div class="stat-card">
@@ -612,7 +620,7 @@
       <div class="timeline-item">
         <div class="timeline-year">2018 – 2021</div>
         <div class="timeline-title">Багшийн хөгжил суралцахуйг дэмжих төв</div>
-        <div class="timeline-desc">Туслах видео эдитор & Туслах зураглаачаар ажилласан..</div>
+        <div class="timeline-desc">Туслах видео эдитор & Туслах зураглаачаар ажилласан.</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-year">2019 – 2020</div>
@@ -665,27 +673,37 @@
     <h2 class="fade-in">Ашигладаг программууд</h2>
     <div class="skills-grid fade-in">
       <div class="skill-card">
-        <span class="skill-icon">🎬</span>
+        <img class="skill-icon-img" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" alt="After Effects">
         <div class="skill-name">After Effects</div>
         <div class="skill-level">Мотион график, VFX</div>
       </div>
       <div class="skill-card">
-        <span class="skill-icon">🎞️</span>
+        <img class="skill-icon-img" src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Premiere Pro">
         <div class="skill-name">Premiere Pro</div>
         <div class="skill-level">Видео монтаж</div>
       </div>
       <div class="skill-card">
-        <span class="skill-icon">🎥</span>
+        <img class="skill-icon-img" src="https://upload.wikimedia.org/wikipedia/commons/9/90/DaVinci_Resolve_17_logo.svg" alt="DaVinci Resolve">
         <div class="skill-name">DaVinci Resolve</div>
         <div class="skill-level">Өнгийн засвар (бага зэрэг)</div>
       </div>
       <div class="skill-card">
-        <span class="skill-icon">🎨</span>
+        <svg class="skill-icon-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="canvaGrad" cx="35%" cy="35%" r="65%">
+              <stop offset="0%" stop-color="#00C4CC"/>
+              <stop offset="50%" stop-color="#7D2AE8"/>
+              <stop offset="100%" stop-color="#7D2AE8"/>
+            </radialGradient>
+          </defs>
+          <circle cx="50" cy="50" r="50" fill="url(#canvaGrad)"/>
+          <text x="50" y="68" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="60" font-weight="bold" fill="white">c</text>
+        </svg>
         <div class="skill-name">Canva</div>
         <div class="skill-level">Дизайн, постер</div>
       </div>
       <div class="skill-card">
-        <span class="skill-icon">🖼️</span>
+        <img class="skill-icon-img" src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Photoshop">
         <div class="skill-name">Photoshop</div>
         <div class="skill-level">Зургийн засвар (бага зэрэг)</div>
       </div>
@@ -697,7 +715,7 @@
   <!-- PORTFOLIO -->
   <section id="portfolio">
     <div class="section-header fade-in">
-      <span class="section-num">04 — Ажлын жишээ</span>
+      <span class="section-num">04 — Хийсэн ажлууд</span>
       <div class="section-line"></div>
     </div>
     <h2 class="fade-in">Контент & Бүтээл</h2>
@@ -876,11 +894,11 @@
         </p>
       </div>
       <div class="contact-links fade-in">
-        <a href="mailto:munhuu.munh6@gmail.com" class="contact-item">
+        <a href="mailto:munh.munhuu33@gmail.com" class="contact-item">
           <span class="contact-icon">✉️</span>
           <div class="contact-info">
             <div class="contact-label">Имэйл</div>
-            <div class="contact-value">munhuu.munh6@gmail.com</div>
+            <div class="contact-value">munh.munhuu33@gmail.com</div>
           </div>
           <span class="contact-arrow">→</span>
         </a>
@@ -892,13 +910,18 @@
           </div>
           <span class="contact-arrow">→</span>
         </a>
-        <div class="contact-item">
-          <span class="contact-icon">📍</span>
+        <a href="https://www.facebook.com/foreversky13/" target="_blank" class="contact-item">
+          <span class="contact-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.791-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+            </svg>
+          </span>
           <div class="contact-info">
-            <div class="contact-label">Байршил</div>
-            <div class="contact-value">Улаанбаатар, Монгол</div>
+            <div class="contact-label">Facebook</div>
+            <div class="contact-value">Мөнхтэнгэр</div>
           </div>
-        </div>
+          <span class="contact-arrow">→</span>
+        </a>
       </div>
     </div>
   </section>
