@@ -492,6 +492,39 @@
       aspect-ratio: 9/16;
     }
 
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .poster-card {
+      cursor: pointer;
+    }
+    .poster-card img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.2s;
+    }
+    .poster-card:hover img { opacity: 0.85; }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 999; display: none;
+      align-items: center; justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; object-fit: contain; }
+    .lightbox-close {
+      position: absolute; top: 24px; right: 32px;
+      background: none; border: none; color: white;
+      font-size: 2rem; cursor: pointer; line-height: 1;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 680px) {
       nav { padding: 16px 24px; }
@@ -677,6 +710,7 @@
       <button class="vtab-btn active" onclick="switchVTab('all')">🎬 Бүгд</button>
       <button class="vtab-btn" onclick="switchVTab('videos')">📹 Видео</button>
       <button class="vtab-btn" onclick="switchVTab('shorts')">⚡ Shorts</button>
+      <button class="vtab-btn" onclick="switchVTab('posters')">🖼️ Постер</button>
     </div>
 
     <!-- БҮГД -->
@@ -772,6 +806,14 @@
           <iframe src="https://www.youtube.com/embed/8pi16Az0Azo" allowfullscreen loading="lazy"></iframe>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
+        <div class="yt-card poster-card">
+          <img src="1.jpg" alt="Постер 1" onclick="openLightbox(this.src)">
+          <div class="yt-info"><span class="yt-label">Постер</span></div>
+        </div>
+        <div class="yt-card poster-card">
+          <img src="2.png" alt="Постер 2" onclick="openLightbox(this.src)">
+          <div class="yt-info"><span class="yt-label">Постер</span></div>
+        </div>
       </div>
     </div>
 
@@ -792,7 +834,27 @@
         </div>
       </div>
     </div>
+
+    <!-- ПОСТЕР -->
+    <div class="video-pane" id="vpane-posters">
+      <div class="poster-grid">
+        <div class="yt-card poster-card">
+          <img src="1.jpg" alt="Постер 1" onclick="openLightbox(this.src)">
+          <div class="yt-info"><span class="yt-label">Постер</span></div>
+        </div>
+        <div class="yt-card poster-card">
+          <img src="2.png" alt="Постер 2" onclick="openLightbox(this.src)">
+          <div class="yt-info"><span class="yt-label">Постер</span></div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Постер">
+  </div>
 
   <div class="divider"></div>
 
@@ -858,13 +920,24 @@
     // Portfolio tab switching
     function switchVTab(tab) {
       document.querySelectorAll('.vtab-btn').forEach((b, i) => {
-        b.classList.toggle('active', 
-          (tab==='all' && i===0) || (tab==='videos' && i===1) || (tab==='shorts' && i===2)
+        b.classList.toggle('active',
+          (tab==='all' && i===0) || (tab==='videos' && i===1) || (tab==='shorts' && i===2) || (tab==='posters' && i===3)
         );
       });
       document.querySelectorAll('.video-pane').forEach(p => p.classList.remove('active'));
       document.getElementById('vpane-' + tab).classList.add('active');
     }
+
+    // Lightbox
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox(e) {
+      if (!e || e.target !== document.getElementById('lightbox-img'))
+        document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open'); });
   </script>
 
 </body>
