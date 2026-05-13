@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ө.Мөнхтэнгэр — Portfolio</title>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8GR1NK4P7N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8GR1NK4P7N');
+  </script>
   <meta name="description" content="Мөнхтэнгэр — Видео эдитор, зураглаач болон контент бүтээгч. Улаанбаатар, Монгол.">
   <meta name="keywords" content="Tengeree, Мөнхтэнгэр, видео эдитор, контент бүтээгч, зураглаач, Улаанбаатар, portfolio">
   <meta name="author" content="Ө.Мөнхтэнгэр">
@@ -696,6 +704,51 @@
       .divider { margin: 0 20px; }
       footer { flex-direction: column; gap: 8px; text-align: center; padding: 20px; }
     }
+    /* ── CURSOR EFFECT ── */
+    .cursor {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s, width 0.2s, height 0.2s, opacity 0.2s;
+      mix-blend-mode: difference;
+    }
+    .cursor-ring {
+      position: fixed;
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: left 0.12s ease-out, top 0.12s ease-out, width 0.2s, height 0.2s, opacity 0.2s;
+      opacity: 0.6;
+    }
+    a:hover ~ .cursor, button:hover ~ .cursor { width: 20px; height: 20px; }
+
+    /* ── LANG TOGGLE ── */
+    .lang-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 5px 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+    }
+    .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    [data-lang="en"] { display: none; }
   </style>
 </head>
 <body>
@@ -707,13 +760,18 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#about" onclick="toggleMenu()">Миний тухай</a></li>
-      <li><a href="#experience" onclick="toggleMenu()">Ажлын туршлага</a></li>
-      <li><a href="#skills" onclick="toggleMenu()">Эзэмшсэн програм</a></li>
-      <li><a href="#portfolio" onclick="toggleMenu()">Хийсэн ажлууд</a></li>
-      <li><a href="#contact" onclick="toggleMenu()">Холбоо барих</a></li>
+      <li><a href="#about" onclick="toggleMenu()"><span data-lang="mn">Миний тухай</span><span data-lang="en">About</span></a></li>
+      <li><a href="#experience" onclick="toggleMenu()"><span data-lang="mn">Ажлын туршлага</span><span data-lang="en">Experience</span></a></li>
+      <li><a href="#skills" onclick="toggleMenu()"><span data-lang="mn">Эзэмшсэн програм</span><span data-lang="en">Skills</span></a></li>
+      <li><a href="#portfolio" onclick="toggleMenu()"><span data-lang="mn">Хийсэн ажлууд</span><span data-lang="en">Portfolio</span></a></li>
+      <li><a href="#contact" onclick="toggleMenu()"><span data-lang="mn">Холбоо барих</span><span data-lang="en">Contact</span></a></li>
+      <li><button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button></li>
     </ul>
   </nav>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
 
   <!-- HERO -->
   <header>
@@ -1166,6 +1224,93 @@
       const btn = document.getElementById('hamburger');
       nav.classList.toggle('open');
       btn.classList.toggle('open');
+    }
+
+    // ── CURSOR EFFECT ──
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.width = '20px';
+        cursor.style.height = '20px';
+        ring.style.width = '52px';
+        ring.style.height = '52px';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.width = '12px';
+        cursor.style.height = '12px';
+        ring.style.width = '36px';
+        ring.style.height = '36px';
+      });
+    });
+
+    // ── LANGUAGE TOGGLE ──
+    let currentLang = 'mn';
+    const translations = {
+      mn: {
+        'hero-name': 'Ө. <em>Мөнхтэнгэр</em>',
+        'hero-sub': 'Видео эдитор, зураглаач болон контент бүтээгч',
+        'about-num': '01 — Миний тухай',
+        'about-h2': 'Миний тухай',
+        'about-p': 'Намайг <strong>Мөнхтэнгэр</strong> гэдэг. Сүлжээний инженерийн мэргэжлээр 2021 онд төгссөн боловч өөрийн сонирхлын дагуу Content creater-ийн салбарлуу орсон.',
+        'exp-num': '02 — Туршлага',
+        'exp-h2': 'Ажлын туршлага',
+        'skills-num': '03 — Эзэмшсэн програм',
+        'skills-h2': 'Ашигладаг програмууд',
+        'portfolio-num': '04 — Ажлын жишээ',
+        'portfolio-h2': 'Контент & Бүтээл',
+        'contact-num': '05 — Холбоо барих',
+        'contact-h2': 'Холбоо барих',
+        'lang-btn': 'EN',
+        'scroll': 'Доош гүйлгэ',
+      },
+      en: {
+        'hero-name': 'Ө. <em>Munkhtengerr</em>',
+        'hero-sub': 'Video Editor, Photographer & Content Creator',
+        'about-num': '01 — About me',
+        'about-h2': 'About me',
+        'about-p': 'My name is <strong>Munkhtengerr</strong>. I graduated in Network Engineering in 2021, but followed my passion and entered the content creation field.',
+        'exp-num': '02 — Experience',
+        'exp-h2': 'Work Experience',
+        'skills-num': '03 — Skills',
+        'skills-h2': 'Software I Use',
+        'portfolio-num': '04 — Portfolio',
+        'portfolio-h2': 'Content & Works',
+        'contact-num': '05 — Contact',
+        'contact-h2': 'Get In Touch',
+        'lang-btn': 'МН',
+        'scroll': 'Scroll down',
+      }
+    };
+
+    function toggleLang() {
+      currentLang = currentLang === 'mn' ? 'en' : 'mn';
+      const t = translations[currentLang];
+
+      document.querySelectorAll('[data-lang="mn"]').forEach(el => el.style.display = currentLang === 'mn' ? '' : 'none');
+      document.querySelectorAll('[data-lang="en"]').forEach(el => el.style.display = currentLang === 'en' ? '' : 'none');
+      document.getElementById('lang-btn').textContent = t['lang-btn'];
+
+      const setHTML = (sel, val) => { const el = document.querySelector(sel); if(el) el.innerHTML = val; };
+      setHTML('.hero-name', t['hero-name']);
+      setHTML('.hero-sub', t['hero-sub']);
+      setHTML('.hero-scroll span:last-child', t['scroll']);
+
+      const sectionNums = document.querySelectorAll('.section-num');
+      const sectionH2s = document.querySelectorAll('section h2');
+      const numKeys = ['about-num','exp-num','skills-num','portfolio-num','contact-num'];
+      const h2Keys = ['about-h2','exp-h2','skills-h2','portfolio-h2','contact-h2'];
+      numKeys.forEach((k,i) => { if(sectionNums[i]) sectionNums[i].textContent = t[k]; });
+      h2Keys.forEach((k,i) => { if(sectionH2s[i]) sectionH2s[i].innerHTML = t[k]; });
+
+      const aboutP = document.querySelector('.about-text p');
+      if(aboutP) aboutP.innerHTML = t['about-p'];
     }
 
     // Scroll fade-in
