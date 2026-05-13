@@ -198,22 +198,35 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: start;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .about-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
 
     .profile-img-wrap {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 28px;
+      display: block;
+      width: 100%;
     }
     .profile-img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
       object-fit: cover;
       border: 3px solid var(--accent);
       box-shadow: 0 0 32px rgba(232,197,71,0.15);
+      display: block;
+    }
+
+    .about-left {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
 
     .about-text p {
@@ -647,6 +660,7 @@
       section h2 { font-size: 2rem; margin-bottom: 20px; }
 
       .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 24px; }
+      .about-stats-grid { grid-template-columns: repeat(2, 1fr); }
       .about-text p { font-size: 0.95rem; }
       .stat-card { padding: 16px; }
       .stat-num { font-size: 1.8rem; }
@@ -719,32 +733,30 @@
       <div class="section-line"></div>
     </div>
     <div class="about-grid">
-      <div class="about-text fade-in">
-        <div class="profile-img-wrap">
-          <img class="profile-img" src="https://raw.githubusercontent.com/munhtenger/munhtenger.github.io/main/profile.jpg" alt="Мөнхтэнгэр">
-        </div>
-        <p>Намайг <strong>Мөнхтэнгэр</strong> гэдэг. Сүлжээний инженерийн мэргэжлээр 2021 онд төгссөн боловч өөрийн сонирхлын дагуу Content creater-ийн салбарлуу орсон.</p>
-        
-        
+      <div class="profile-img-wrap fade-in">
+        <img class="profile-img" src="https://raw.githubusercontent.com/munhtenger/munhtenger.github.io/main/main.png" alt="Мөнхтэнгэр">
       </div>
-      <div class="about-stats fade-in">
-        <div class="stat-card">
-          <div class="stat-num">2020</div>
-          <div class="stat-label">Контент бүтээгч болсон он</div>
-        </div>
-         <div class="about-stats fade-in">
-        <div class="stat-card">
-          <div class="stat-num">5+ жил</div>
-          <div class="stat-label">Зураглаач болон эвлүүлэгчээр ажилласан жил</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">5+</div>
-          <div class="stat-label">Ашигладаг мэргэжлийн программ</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">IT</div>
-          <div class="stat-label">Суурь боловсрол — Сүлжээний инженер</div>
-        </div>
+      <div class="about-text fade-in">
+        <p>Намайг <strong>Мөнхтэнгэр</strong> гэдэг. Сүлжээний инженерийн мэргэжлээр 2021 онд төгссөн боловч өөрийн сонирхлын дагуу Content creater-ийн салбарлуу орсон.</p>
+      </div>
+    </div>
+
+    <div class="about-stats-grid fade-in">
+      <div class="stat-card">
+        <div class="stat-num">2020</div>
+        <div class="stat-label">Контент бүтээгч болсон он</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5+ жил</div>
+        <div class="stat-label">Зураглаач болон эвлүүлэгчээр ажилласан жил</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Ашигладаг мэргэжлийн программ</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">IT</div>
+        <div class="stat-label">Суурь боловсрол — Сүлжээний инженер</div>
       </div>
     </div>
   </section>
