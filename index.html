@@ -482,6 +482,52 @@
       display: block;
       border: none;
     }
+
+    /* Thumbnail card */
+    .yt-thumb-wrap {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      display: block;
+      cursor: pointer;
+    }
+    .yt-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .yt-thumb-wrap:hover img { transform: scale(1.04); }
+    .yt-play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.3);
+      transition: background 0.2s;
+    }
+    .yt-thumb-wrap:hover .yt-play-btn { background: rgba(0,0,0,0.5); }
+    .yt-play-btn svg { width: 56px; height: 56px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5)); }
+
+    .shorts-thumb-wrap {
+      position: relative;
+      aspect-ratio: 9/16;
+      overflow: hidden;
+      display: block;
+      cursor: pointer;
+    }
+    .shorts-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .shorts-thumb-wrap:hover img { transform: scale(1.04); }
+    .shorts-thumb-wrap .yt-play-btn { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); transition: background 0.2s; }
+    .shorts-thumb-wrap:hover .yt-play-btn { background: rgba(0,0,0,0.5); }
     .yt-info { padding: 14px 16px; }
     .yt-label {
       font-size: 0.75rem;
@@ -811,51 +857,87 @@
     <div class="video-pane active" id="vpane-all">
       <div class="yt-grid">
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/0IW-vNE4z3g" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=0IW-vNE4z3g" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/0IW-vNE4z3g/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/KKLrRLNAB90" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=KKLrRLNAB90" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/KKLrRLNAB90/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/_nyG3D2G2Ak" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=_nyG3D2G2Ak" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/_nyG3D2G2Ak/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/DTullOZRBk8" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=DTullOZRBk8" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/DTullOZRBk8/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/4rUrlx-NIEA" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=4rUrlx-NIEA" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/4rUrlx-NIEA/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/oMCg6MmnmQU" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=oMCg6MmnmQU" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/oMCg6MmnmQU/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/0n5rr4fJNis" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/shorts/0n5rr4fJNis" target="_blank" class="shorts-thumb-wrap">
+          <img src="https://img.youtube.com/vi/0n5rr4fJNis/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Shorts</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/KivcFg_FXZ0" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/shorts/KivcFg_FXZ0" target="_blank" class="shorts-thumb-wrap">
+          <img src="https://img.youtube.com/vi/KivcFg_FXZ0/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Shorts</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/O4zPAu4dE_Y" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/shorts/O4zPAu4dE_Y" target="_blank" class="shorts-thumb-wrap">
+          <img src="https://img.youtube.com/vi/O4zPAu4dE_Y/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Shorts</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/KHWPO6Gt4Lk" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=KHWPO6Gt4Lk" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/KHWPO6Gt4Lk/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/Ef44FCZr0YQ" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=Ef44FCZr0YQ" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/Ef44FCZr0YQ/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/8pi16Az0Azo" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=8pi16Az0Azo" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/8pi16Az0Azo/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card poster-card">
@@ -873,39 +955,66 @@
     <div class="video-pane" id="vpane-videos">
       <div class="yt-grid">
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/0IW-vNE4z3g" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=0IW-vNE4z3g" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/0IW-vNE4z3g/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/KKLrRLNAB90" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=KKLrRLNAB90" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/KKLrRLNAB90/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/_nyG3D2G2Ak" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=_nyG3D2G2Ak" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/_nyG3D2G2Ak/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/DTullOZRBk8" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=DTullOZRBk8" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/DTullOZRBk8/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/4rUrlx-NIEA" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=4rUrlx-NIEA" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/4rUrlx-NIEA/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/oMCg6MmnmQU" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=oMCg6MmnmQU" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/oMCg6MmnmQU/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/KHWPO6Gt4Lk" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=KHWPO6Gt4Lk" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/KHWPO6Gt4Lk/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/Ef44FCZr0YQ" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=Ef44FCZr0YQ" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/Ef44FCZr0YQ/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/8pi16Az0Azo" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/watch?v=8pi16Az0Azo" target="_blank" class="yt-thumb-wrap">
+          <img src="https://img.youtube.com/vi/8pi16Az0Azo/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Видео</span></div>
         </div>
         <div class="yt-card poster-card">
@@ -923,15 +1032,24 @@
     <div class="video-pane" id="vpane-shorts">
       <div class="shorts-grid">
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/0n5rr4fJNis" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/shorts/0n5rr4fJNis" target="_blank" class="shorts-thumb-wrap">
+          <img src="https://img.youtube.com/vi/0n5rr4fJNis/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Shorts</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/KivcFg_FXZ0" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/shorts/KivcFg_FXZ0" target="_blank" class="shorts-thumb-wrap">
+          <img src="https://img.youtube.com/vi/KivcFg_FXZ0/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Shorts</span></div>
         </div>
         <div class="yt-card">
-          <iframe src="https://www.youtube.com/embed/O4zPAu4dE_Y" allowfullscreen loading="lazy"></iframe>
+          <a href="https://www.youtube.com/shorts/O4zPAu4dE_Y" target="_blank" class="shorts-thumb-wrap">
+          <img src="https://img.youtube.com/vi/O4zPAu4dE_Y/hqdefault.jpg" alt="video" loading="lazy">
+          <div class="yt-play-btn"><svg viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24 27 14v20" fill="white"/></svg></div>
+        </a>
           <div class="yt-info"><span class="yt-label">Shorts</span></div>
         </div>
       </div>
