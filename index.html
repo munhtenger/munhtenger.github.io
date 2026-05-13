@@ -533,17 +533,79 @@
       font-size: 2rem; cursor: pointer; line-height: 1;
     }
 
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 200;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 680px) {
-      nav { padding: 16px 24px; }
-      .nav-links { gap: 20px; }
-      header { padding: 0 24px 60px; }
-      section { padding: 0 24px; margin: 70px auto; }
-      .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 32px; }
-      .divider { margin: 0 24px; }
-      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+      nav { padding: 14px 20px; }
+
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(12,12,14,0.97);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        z-index: 150;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.2rem; }
+
+      header { padding: 80px 20px 40px; }
+      .hero-name { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+      .hero-sub { font-size: 0.95rem; margin-top: 16px; }
+      .hero-scroll { margin-top: 24px; }
+
+      section { padding: 0 20px; margin: 50px auto; }
+      section h2 { font-size: 2rem; margin-bottom: 20px; }
+
+      .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 24px; }
+      .about-text p { font-size: 0.95rem; }
+      .stat-card { padding: 16px; }
+      .stat-num { font-size: 1.8rem; }
+
+      .timeline { padding-left: 20px; }
+      .timeline-item { padding-bottom: 28px; }
+      .timeline-title { font-size: 0.95rem; }
+
+      .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .skill-card { padding: 16px 12px; }
+
+      .video-tabs { gap: 8px; }
+      .vtab-btn { padding: 7px 12px; font-size: 0.75rem; }
+
       .yt-grid { grid-template-columns: 1fr; }
       .shorts-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .contact-item { padding: 14px 16px; }
+
+      .divider { margin: 0 20px; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 20px; }
     }
   </style>
 </head>
@@ -552,12 +614,15 @@
   <!-- NAV -->
   <nav>
     <span class="nav-logo">Portfolio — 2026</span>
-    <ul class="nav-links">
-      <li><a href="#about">Миний тухай</a></li>
-      <li><a href="#experience">Ажлын туршлага</a></li>
-      <li><a href="#skills">эзэмшсэн програм</a></li>
-      <li><a href="#portfolio">Хийсэн ажлууд</a></li>
-      <li><a href="#contact">Холбоо барих</a></li>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about" onclick="toggleMenu()">Миний тухай</a></li>
+      <li><a href="#experience" onclick="toggleMenu()">Ажлын туршлага</a></li>
+      <li><a href="#skills" onclick="toggleMenu()">Эзэмшсэн програм</a></li>
+      <li><a href="#portfolio" onclick="toggleMenu()">Хийсэн ажлууд</a></li>
+      <li><a href="#contact" onclick="toggleMenu()">Холбоо барих</a></li>
     </ul>
   </nav>
 
@@ -933,6 +998,14 @@
   </footer>
 
   <script>
+    // Hamburger menu
+    function toggleMenu() {
+      const nav = document.getElementById('nav-links');
+      const btn = document.getElementById('hamburger');
+      nav.classList.toggle('open');
+      btn.classList.toggle('open');
+    }
+
     // Scroll fade-in
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
